@@ -44,29 +44,32 @@ export const getHotel = async (req, res, next) => {
 };
 
 export const getHotels = async (req, res, next) => {
-    const { min, max, limit, featured } = req.query;
+    const { min, max, limit, featured, city } = req.query;
     try {
-      const hotels = await Hotel.find({
+        const hotels = await Hotel.find({
+        city: city,
         featured: featured,
-        cheapestPrice: { $gt: min | 1, $lt: max || 999 },
-      }).limit(limit);
-      res.status(200).json(hotels);
+        cheapestPrice: { $gt: min || 1, $lt: max || 999 },
+        }).limit(limit);
+        res.status(200).json(hotels);
     } catch (err) {
-      next(err);
+        next(err);
     }
 };
 
 export const countByCity = async (req, res, next) => {
     const cities = req.query.cities.split(",");
-    try {
-        const list = await Promise.all(
-            cities.map(city => {
-                return Hotel.countDocuments({ city:city });
-            })
-        );
-        res.status(200).json(list);
-    } catch (err) {
-        next(err);
+    if (cities) {
+        try {
+            const list = await Promise.all(
+                cities.map(city => {
+                    return Hotel.countDocuments({ city:city });
+                })
+            );
+            res.status(200).json(list);
+        } catch (err) {
+            next(err);
+        }
     }
 };
 
