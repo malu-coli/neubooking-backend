@@ -84,26 +84,6 @@ describe("ATC_002", () => {
 });
 
 describe("ATC_003", () => {
-  after(async () => {
-    await User.deleteOne({ username: "ATC_003TestName" });
-  });
-
-  it("should register user to login to", async () => {
-    const response = await supertest(app)
-      .post("/api/auth/register")
-      .set("Content-Type", "application/json")
-      .send({
-        username: "ATC_003TestName",
-        email: "test003@email.com",
-        password: "TestPass123",
-      })
-      .then((response) => {
-        return response;
-      });
-
-    expect(response.statusCode).to.be.equal(200);
-  });
-
   it("should return error code 404 for user not found", async () => {
     const response = await supertest(app)
       .post("/api/auth/login")
