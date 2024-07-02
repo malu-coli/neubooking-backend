@@ -6,7 +6,7 @@ dotenv.config();
 import app from "../index.js";
 import User from "../models/User.js";
 
-describe("UTC_012", () => {
+describe("UTC_001", () => {
   // Delete user after validation
   after(async () => {
     await User.deleteOne({ username: "UpdatedUsername" });
@@ -69,7 +69,7 @@ describe("UTC_012", () => {
   });
 });
 
-describe("UTC_013", () => {
+describe("UTC_002", () => {
   // Delete user after validation
   after(async () => {
     await User.deleteOne({ username: "UTC_013TestName" });
@@ -131,7 +131,7 @@ describe("UTC_013", () => {
   });
 });
 
-describe("UTC_014", () => {
+describe("UTC_003", () => {
   // Register user to delete
   it("should register a new user to delete", async () => {
     const response = await supertest(app)
@@ -186,7 +186,7 @@ describe("UTC_014", () => {
   });
 });
 
-describe("UTC_015", () => {
+describe("UTC_004", () => {
   // Delete user after validation
   after(async () => {
     await User.deleteOne({ username: "UTC_015TestName" });
@@ -242,7 +242,7 @@ describe("UTC_015", () => {
   });
 });
 
-describe("UTC_016", () => {
+describe("UTC_005", () => {
   // Delete user after validation
   after(async () => {
     await User.deleteOne({ username: "UTC_016TestName" });
@@ -306,7 +306,7 @@ describe("UTC_016", () => {
   });
 });
 
-describe("UTC_017", () => {
+describe("UTC_006", () => {
   // Delete user after validation
   after(async () => {
     await User.deleteOne({ username: "UTC_017TestName" });
@@ -369,7 +369,7 @@ describe("UTC_017", () => {
   });
 });
 
-describe("UTC_018", () => {
+describe("UTC_007", () => {
   // Delete user after validation
   after(async () => {
     await User.deleteOne({ username: "UTC_018TestName" });
@@ -433,7 +433,7 @@ describe("UTC_018", () => {
   });
 });
 
-describe("UTC_019", () => {
+describe("UTC_008", () => {
   // Not get all users info
   it("should not get all users info due to invalid token (non admin)", async () => {
     // get all users
