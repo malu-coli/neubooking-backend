@@ -14,7 +14,7 @@ const connect = async () => {
   let database = process.env.MONGO;
 
   if (process.env.NODE_ENV === "testing") {
-    database = process.env.TEST_MONGO;
+    database = process.env.MONGO_TEST;
   }
 
   try {
