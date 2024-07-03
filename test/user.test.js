@@ -21,6 +21,7 @@ describe("UTC_001", () => {
         username: "UTC_012TestName",
         email: "test@email.com",
         password: "TestPass123",
+        isAdmin: true,
       })
       .then((response) => {
         return response;
@@ -36,7 +37,6 @@ describe("UTC_001", () => {
       .set("Content-Type", "application/json")
       .send({
         username: "UTC_012TestName",
-        email: "test@email.com",
         password: "TestPass123",
       })
       .then((response) => {
@@ -363,8 +363,7 @@ describe("UTC_006", () => {
       .catch((err) => {
         return err;
       });
-
-    console.log(response);
+      
     expect(response[0].statusCode).to.be.equal(404);
   });
 });
